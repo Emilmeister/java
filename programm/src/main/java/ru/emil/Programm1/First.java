@@ -9,7 +9,9 @@ package ru.emil.Programm1;
  *@since 28.07.2017
  */
 public class First {
-
+    /**
+     * balance.
+     */
     public static double balanse= 0;
     public static int[] vipadenie = new  int[5];
 
