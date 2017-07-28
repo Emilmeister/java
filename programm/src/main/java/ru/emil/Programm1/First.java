@@ -1,14 +1,18 @@
 package ru.emil.Programm1;
 
-import java.awt.*;
+
 
 /**
- * Created by dinis on 27.07.17.
+ *Class First.
+ *@author Emil Madatov (emilis.highscreen@gmail.com)
+ *@version 1.0
+ *@since 28.07.2017
  */
 public class First {
 
     public static double balanse= 0;
     public static int[] vipadenie = new  int[5];
+
     public static void main ( String[] args ){
         int a= 0;
         int cases = 100;
