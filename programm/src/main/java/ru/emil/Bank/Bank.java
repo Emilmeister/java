@@ -10,26 +10,24 @@ public class Bank {
     public double sum = 0;
     public double prosents = 1;
     public double years = 1;
+    public double mounth = 0;
     public double pl = 0;
     public int platej(){
 
         pereplata = (int) sum;
 
-        sum = sum * Math.pow(prosents, years);
+        sum = sum * Math.pow(prosents, ((years * 12) + mounth));
 
-        for(int i = 0; i < years;){
+        for(int i = 0; i < ((years * 12) + mounth); i++) {
+            if (i != ((years * 12) + mounth)-1){
 
-            if (i == 0){
-
-                pl += 12;
-                i++;
+                pl += 1;
+                pl = pl * prosents;
 
             }
-            if ((i != 0)){
+            if (i == ((years * 12) + mounth)-1){
 
-                pl *= prosents;
-                pl += 12;
-                i++;
+                pl += 1;
 
             }
 
