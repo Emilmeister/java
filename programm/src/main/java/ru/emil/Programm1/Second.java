@@ -5,29 +5,29 @@ package ru.emil.Programm1;
  */
 public class Second {
     public static String open(){
-        double a = Math.ceil(Math.random() * 100);
+        double a = Math.random() * 100;
         String variable ="";
-        if ( a <= 64 ) {
+        if ( a <= 73 ) {
             variable = "Юмп 45 Капрал";
             First.balanse += 10;
             First.vipadenie[0]++;
         }else{
-            if ( a <= 84 ){
+            if ( a <= 93 ){
                 variable = "Дигл Нага";
                 First.vipadenie[1]++;
                 First.balanse += 40;
             }else{
-                if ( a <= 94 ){
+                if ( a <= 98 ){
                    variable = "\t\tАвп Элитное снараяжение";
                     First.vipadenie[2]++;
                     First.balanse += 300;
                 }else{
-                    if ( a <= 99 ){
+                    if ( a <= 99.4 ){
                         variable = "\t\t\t\t\t\tАк47 Аквамариновая месть";
                         First.vipadenie[3]++;
                         First.balanse += 800;
                     }else
-                        if ( a == 100 ){
+                        if ( a <= 100 ){
                             variable = "\t\t\t\t\t\t\t\t\t\t\t\t\tКерамбит Кровавая паутина";
                             First.vipadenie[4]++;
                             First.balanse += 7000;

@@ -1,6 +1,7 @@
 package ru.emil.Bank;
 
 
+import java.time.Year;
 
 /**
  * Create by dinis of 17.08.17.
@@ -12,7 +13,8 @@ public class Bank {
     public double years = 1;
     public double mounth = 0;
     public double pl = 0;
-    public int platej(){
+
+    public int credit(){
 
         pereplata = (int) sum;
 
@@ -38,6 +40,20 @@ public class Bank {
         return (int) (sum/pl);
 
     }
+
+    public int vklad(){
+        double a = 0;
+        double b = 0;
+        for(int i = (int) (years * 12 + mounth); i > 0 ; i--){
+            b = Math.pow(prosents, i);
+            a +=b;
+        }
+        pereplata = (int) (sum * a); //В ообщем
+        sum = sum * (years * 12 + mounth); //дают проценты
+        sum = pereplata - sum;
+        return pereplata;
+    }
+
 
 
 }

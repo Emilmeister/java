@@ -71,7 +71,7 @@ public class Go {
 
                     user.setBalance(coins);
                     user.setBalance((int) Math.pow(2, viborka) * coins / 2);
-                    System.out.println("Все правильно. Ваш баланс пополнился на " + ((int) Math.pow(2, viborka) * coins) + "Ваш баланс: " + user.getBalance());
+                    System.out.println("Все правильно. Ваш баланс пополнился на " + ((int) Math.pow(2, viborka) * coins) + ". Ваш баланс: " + user.getBalance());
 
                 } else {
 

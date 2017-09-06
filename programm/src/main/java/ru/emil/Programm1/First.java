@@ -17,7 +17,7 @@ public class First {
 
     public static void main ( String[] args ){
         int a= 0;
-        int cases = 100;
+        int cases = 10;
         while ( a < cases ){
             System.out.println(Second.open());
             a++;

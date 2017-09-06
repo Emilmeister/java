@@ -7,8 +7,10 @@ package ru.emil.Bank;
  */
 public class Go {
 
-    Bank bk = new Bank();
-    User us = new User();
+    private  Bank bk = new Bank();
+    private User us = new User();
+
+    private  String proverka = "";
 
     public void go(){
 
@@ -22,10 +24,24 @@ public class Go {
        bk.years = us.user();
        System.out.println("На сколько(+) месяцев берете. Не вводите число с запятой или точкой.");
        bk.mounth = us.user();
-       System.out.println("Ежемесечный платеж равен: " + bk.platej() + "   Переплата составит: " + bk.pereplata);
-       System.out.println(bk.pl);
-       System.out.println(bk.sum);
+       System.out.println("Если вклад введите что нибудь. Если кредит, то ентер.");
+       proverka = us.exit();
+       if(proverka.equals("")){
+           crdt();
+       }else {
+           vkld();
+       }
 
    }
 
+
+
+
+    public void crdt(){
+        System.out.println("Ежемесечный платеж равен: " + bk.credit() + "   Переплата составит: " + bk.pereplata);
+    }
+
+    public void vkld(){
+        System.out.println("Сумма в конце срока будет равна: "+ bk.vklad()+ "   Проценты принесут: " + bk.sum);
+    }
 }
