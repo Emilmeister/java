@@ -20,7 +20,7 @@ public class Go {
         toScan1 = sc.nextLine();
         toScan2 = sc.nextLine();
         toScan3 = sc.nextLine();
-        track.addPropertyOfObject(toScan1, toScan2, toScan3);
+        track.setPropertyOfObject(toScan1, toScan2, toScan3);
         track.getObjectsAndPropertys();
 
     }

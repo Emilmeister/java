@@ -10,6 +10,9 @@ public class Property {
 
     public Property(String name){ //constructor
         this.name = name;
+        for(int i = 0; i < value.length; i++){
+            value[i] = "";
+        }
 
     }
 
