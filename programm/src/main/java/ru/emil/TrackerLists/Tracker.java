@@ -26,7 +26,49 @@ public class Tracker {
      }
 
      public void setPropertyOfObject(String propertyName, String value, String ObjectzNumber){
-         Property c = new Property("");
+
+         int number = -1;
+         int numOfProp = 0;
+         Property prop = new Property("");
+
+         if(objects.isEmpty()){
+             System.out.println("Нет ни одного свойства.");
+         }else if (propertyName.equals("")){
+             System.out.println("Не введено имя свойства.");
+         }else if(value.equals("")){
+             System.out.println("Вы не ввели значение.");
+         }else if(ObjectzNumber.equals("")){
+             System.out.println("Вы не ввели число.");
+         }else {
+             do{
+                try{
+                    number = Integer.parseInt(ObjectzNumber);
+                }catch (Exception E){
+                    System.out.println("Неправильный номер объекта. Введите еще раз.");
+                    Scanner sc = new Scanner(System.in);
+                    ObjectzNumber = sc.nextLine();
+                }
+             }while(number == -1);
+
+             do{
+                 for(int i = 0; i < properties.size(); i++){
+                     if(properties.get(i).getName().equals(propertyName)){
+                         prop = properties.get(i);
+                         numOfProp = i;
+                         break;
+                     }
+                 }
+                 if(prop.getName().equals("")){
+                     Scanner sc = new Scanner(System.in);
+                     System.out.println("Не найдено свойство. Ведите другое.");
+                     propertyName = sc.nextLine();
+                 }
+             }while(prop.getName().equals(""));
+             prop.setValueOfObject(number,value);
+             properties.set(numOfProp,prop);
+         }
+
+         /* Property c = new Property("");
          Boolean b;
          int number = -1;
 
@@ -60,8 +102,7 @@ public class Tracker {
                  if(b){
                  c.setValueOfObject(number,value);
                  }
-         }
-
+         }*/
      }
 
      public String getPropertyOfObject(String nameOfObject, String nameOfProperty){
@@ -118,13 +159,15 @@ public class Tracker {
 
              for (int i = 0; i < objects.size(); i++) {
                  System.out.print("|" + remakeString(simbols, ob[i].getName()) + "|" );
-                 for (int b = 0; b < properties.size(); b++){
-                     if(b == properties.size() - 1){
-                         System.out.println(remakeString(simbols,pr[i].getValue(b+1)) + "|");
-                     }else {
-                         System.out.print(remakeString(simbols,pr[i].getValue(b+1)) +"|");
+                 //for(int x = 0; x < ) {
+                     for (int b = 0; b < properties.size(); b++) {
+                         if (b == properties.size() - 1) {
+                             System.out.println(remakeString(simbols, pr[b].getValue(i + 1)) + "|");//i -b
+                         } else {
+                             System.out.print(remakeString(simbols, pr[b].getValue(i + 1)) + "|");//i - b
+                         }
                      }
-                 }
+                 //}
              }
          }else {
              System.out.println("Нет объектов.");

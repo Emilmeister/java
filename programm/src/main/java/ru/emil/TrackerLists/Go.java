@@ -11,6 +11,8 @@ public class Go {
 
     Scanner sc = new Scanner(System.in);
     public void init(){
+        String  s = "";
+        /*
         toScan1 = sc.nextLine();
         track.addObject(toScan1);
         toScan1 = sc.nextLine();
@@ -22,6 +24,12 @@ public class Go {
         toScan3 = sc.nextLine();
         track.setPropertyOfObject(toScan1, toScan2, toScan3);
         track.getObjectsAndPropertys();
+        */
+        do {
+            System.out.println("[1] Добавть новй оюъект.\n[2]\n[3]\n[4]\n[5]");
+
+            System.out.println("Введите что-то для продолжения. Для выхода энтер.");
+        }while(!(s.equals("")));
 
     }
 }
