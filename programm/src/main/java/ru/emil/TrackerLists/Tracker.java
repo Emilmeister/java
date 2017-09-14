@@ -25,7 +25,7 @@ public class Tracker {
          }
      }
 
-     public void setPropertyOfObject(String propertyName, String value, String ObjectzNumber){
+     public void setPropertyOfObjectPrpName(String propertyName, String value, String ObjectzNumber){
 
          int number = -1;
          int numOfProp = 0;
@@ -148,7 +148,7 @@ public class Tracker {
              ob[i] = objects.get(i);
          }
          if(objects.size()>0){
-             System.out.print("|          |");
+             System.out.print("| |          |");
              for (int i = 0; i < properties.size();i++ ){
                  if(i == properties.size() - 1) {
                      System.out.println(remakeString(simbols,pr[i].getName())+"|");
@@ -158,7 +158,7 @@ public class Tracker {
              }
 
              for (int i = 0; i < objects.size(); i++) {
-                 System.out.print("|" + remakeString(simbols, ob[i].getName()) + "|" );
+                 System.out.print("|"+ i+1 +"|" + remakeString(simbols, ob[i].getName()) + "|" );
                  //for(int x = 0; x < ) {
                      for (int b = 0; b < properties.size(); b++) {
                          if (b == properties.size() - 1) {
@@ -174,7 +174,7 @@ public class Tracker {
          }
      }
 
-    public static String remakeString(int a,String b) {
+     public static String remakeString(int a,String b) {
         char[] ch1 = b.toCharArray();
         char[] ch2 = new char[a];
         b = "";
@@ -204,5 +204,44 @@ public class Tracker {
         return b;
     }
 
+     public void remakeNameofObject(String ObjectzNumber, String nameOfObject){
+         Object ob = new Object("");
+         int ObNum = -1;
+         try{
+             ObNum = Integer.parseInt(ObjectzNumber);
+         }catch (Exception E){
+            System.out.println("Неправильно введен номер объекта.");
+             Scanner sc = new Scanner(System.in);
+             ObjectzNumber = sc.nextLine();
+
+             ObNum = Integer.parseInt(ObjectzNumber);
+         }
+         if(!((ObNum < 0)||(objects.size()< ObNum))){
+             ob = objects.get(ObNum-1);
+             ob.setName(nameOfObject);
+             objects.set(ObNum - 1, ob);
+             System.out.print("Имя изменено.");
+         }else{
+             System.out.print("Имя не изменено.");
+         }
+
+
+
+     }
+
+    /* public void setPropertyOfobjectPrpNumber(String propertyNumber, String value, String ObjectzNumber){
+         Property prop = new Property("");
+         int number = -1;
+         int numOfProp = 0;
+         if(objects.isEmpty()){
+             System.out.println("Нет ни одного свойства.");
+         }else if (propertyNumber.equals("")){
+             System.out.println("Не введено имя свойства.");
+         }else if(value.equals("")){
+             System.out.println("Вы не ввели значение.");
+         }else if(ObjectzNumber.equals("")){
+             System.out.println("Вы не ввели число.");
+         }else {
+     }*/
 }
 

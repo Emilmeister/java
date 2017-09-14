@@ -27,7 +27,7 @@ public class Go {
         track.getObjectsAndPropertys();
         */
         do {
-            System.out.println("\n[1] Добавить новый объект.\n[2] Добавить новое свойство. \n[3] Добавить свойство объекта.\n[4] Получить свойство объекта.\n[5] Получить таблицу объектов и их свойсв.\n\nВведите что вам нужно. Для выхода ентер. ");
+            System.out.println("\n[1] Добавить новый объект.\n[2] Добавить новое свойство. \n[3] Добавить свойство объекта.\n[4] Получить свойство объекта.\n[5] Получить таблицу объектов и их свойсв.\n[6] Для замены имен объектов.\n\nВведите что вам нужно. Для выхода ентер. ");
             s = sc.nextLine();
             if(!(s.equals(""))) {
                 do {
@@ -42,7 +42,7 @@ public class Go {
             }
             switch (a){
                 case 1: {
-                    System.out.println("Введите имя объекта. ");
+                    System.out.println("Введите имя объекта.");
                     toScan1 = sc.nextLine();
                     track.addObject(toScan1);
                     break;
@@ -56,24 +56,31 @@ public class Go {
                 case 3:{
                     System.out.println("Введите номер объекта.");
                     toScan1 = sc.nextLine();
-                    System.out.println("Введите название свойство.");
+                    System.out.println("Введите название свойства.");
                     toScan2 = sc.nextLine();
                     System.out.println("Введите добавочное значение.");
                     toScan3 = sc.nextLine();
-                    track.setPropertyOfObject(toScan2,toScan3,toScan1);
+                    track.setPropertyOfObjectPrpName(toScan2,toScan3,toScan1);
                     break;
                 }
                 case 4:{
                     System.out.println("Введите имя объекта.");
                     toScan1 = sc.nextLine();
-                    System.out.println("Введите название свойство.");
+                    System.out.println("Введите название свойства.");
                     toScan2 = sc.nextLine();
-                    track.getPropertyOfObject(toScan1,toScan2);
+                    System.out.println(track.getPropertyOfObject(toScan1,toScan2));
                     break;
                 }
                 case 5:{
                     track.getObjectsAndPropertys();
                     break;
+                }
+                case 6:{
+                    System.out.println("Введите номер объекта.");
+                    toScan1 = sc.nextLine();
+                    System.out.println("Введите новое имя.");
+                    toScan2 = sc.nextLine();
+                    track.remakeNameofObject(toScan1,toScan2);
                 }
             }
         }while(!(s.equals("")));
