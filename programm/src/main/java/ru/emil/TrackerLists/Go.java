@@ -27,7 +27,7 @@ public class Go {
         track.getObjectsAndPropertys();
         */
         do {
-            System.out.println("\n[1] Добавить новый объект.\n[2] Добавить новое свойство. \n[3] Добавить свойство объекта.\n[4] Получить свойство объекта.\n[5] Получить таблицу объектов и их свойсв.\n[6] Для замены имен объектов.\n\nВведите что вам нужно. Для выхода ентер. ");
+            System.out.println("\n[1] Добавить новый объект.\n[2] Добавить новое свойство. \n[3] Добавить свойство объекта.\n[4] Получить свойство объекта.\n[5] Получить таблицу объектов и их свойсв.\n[6] Для замены имен объектов.\n[7] Для ввода нескольких объектов.\n\nВведите что вам нужно. Для выхода ентер. ");
             s = sc.nextLine();
             if(!(s.equals(""))) {
                 do {
@@ -81,6 +81,23 @@ public class Go {
                     System.out.println("Введите новое имя.");
                     toScan2 = sc.nextLine();
                     track.remakeNameofObject(toScan1,toScan2);
+                }
+
+                case 7:{
+                    int var = 1;
+                    System.out.println("Сколько объектов вы хотите создать?");
+                    toScan1 = sc.nextLine();
+                    try{
+                        var = Integer.parseInt(toScan1);
+                    }catch (Exception E){
+                        System.out.println("Неправильно введено число. Введите еще раз.");
+                        toScan1 = sc.nextLine();
+                        var = Integer.parseInt(toScan1);
+                    }
+                    for (int i = 0; i < var; i++ ) {
+                        toScan2 = sc.nextLine();
+                        track.addObject(toScan2);
+                    }
                 }
             }
         }while(!(s.equals("")));

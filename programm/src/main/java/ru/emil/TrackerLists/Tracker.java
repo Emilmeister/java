@@ -158,7 +158,7 @@ public class Tracker {
              }
 
              for (int i = 0; i < objects.size(); i++) {
-                 System.out.print("|"+ i+1 +"|" + remakeString(simbols, ob[i].getName()) + "|" );
+                 System.out.print("|"+ (remakeString(4, String.valueOf((i+1))) +"|" + remakeString(simbols, ob[i].getName()) + "|" ));
                  //for(int x = 0; x < ) {
                      for (int b = 0; b < properties.size(); b++) {
                          if (b == properties.size() - 1) {
@@ -229,19 +229,7 @@ public class Tracker {
 
      }
 
-    /* public void setPropertyOfobjectPrpNumber(String propertyNumber, String value, String ObjectzNumber){
-         Property prop = new Property("");
-         int number = -1;
-         int numOfProp = 0;
-         if(objects.isEmpty()){
-             System.out.println("Нет ни одного свойства.");
-         }else if (propertyNumber.equals("")){
-             System.out.println("Не введено имя свойства.");
-         }else if(value.equals("")){
-             System.out.println("Вы не ввели значение.");
-         }else if(ObjectzNumber.equals("")){
-             System.out.println("Вы не ввели число.");
-         }else {
-     }*/
+
+
 }
 
