@@ -135,7 +135,7 @@ public class Tracker {
              s = "";
          }
              return s;
-     }
+     }//get one prop
 
      public void getObjectsAndPropertys(){
          Object[] ob = new Object[objects.size()];
@@ -148,7 +148,7 @@ public class Tracker {
              ob[i] = objects.get(i);
          }
          if(objects.size()>0){
-             System.out.print("| |          |");
+             System.out.print("|    |          |");
              for (int i = 0; i < properties.size();i++ ){
                  if(i == properties.size() - 1) {
                      System.out.println(remakeString(simbols,pr[i].getName())+"|");
@@ -172,7 +172,7 @@ public class Tracker {
          }else {
              System.out.println("Нет объектов.");
          }
-     }
+     }//all
 
      public static String remakeString(int a,String b) {
         char[] ch1 = b.toCharArray();
