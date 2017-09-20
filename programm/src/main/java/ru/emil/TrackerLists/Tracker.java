@@ -67,42 +67,6 @@ public class Tracker {
              prop.setValueOfObject(number,value);
              properties.set(numOfProp,prop);
          }
-
-         /* Property c = new Property("");
-         Boolean b;
-         int number = -1;
-
-         if(objects.isEmpty()){
-             System.out.println("Нет ни одного свойства.");
-         }else if (propertyName.equals("")){
-             System.out.println("Не введено имя свойства.");
-         }else if(value.equals("")){
-             System.out.println("Вы не ввели значение.");
-         }else if(ObjectzNumber.equals("")){
-             System.out.println("Вы не ввели число.");
-         }else {
-                 try {
-                     number = Integer.parseInt(ObjectzNumber);
-                 } catch (Exception E) {
-                     System.out.println("Неправильный номер объекта. Введите еще раз.");
-                     Scanner sc = new Scanner(System.in);
-                     ObjectzNumber = sc.nextLine();
-                 }
-                 int i = 0;
-                 do {
-                     b = true;
-                     Property a = properties.get(i);
-                     if(a.getName().equals(propertyName)){
-                         c = a;
-                         break;
-                     }
-                     i++;
-                        b = false;
-                 }while (i < properties.size());
-                 if(b){
-                 c.setValueOfObject(number,value);
-                 }
-         }*/
      }
 
      public String getPropertyOfObject(String nameOfObject, String nameOfProperty){

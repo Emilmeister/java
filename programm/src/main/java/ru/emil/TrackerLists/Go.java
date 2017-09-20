@@ -27,7 +27,16 @@ public class Go {
         track.getObjectsAndPropertys();
         */
         do {
-            System.out.println("\n[1] Добавить новый объект.\n[2] Добавить новое свойство. \n[3] Добавить свойство объекта.\n[4] Получить свойство объекта.\n[5] Получить таблицу объектов и их свойсв.\n[6] Для замены имен объектов.\n[7] Для добавления нескольких объектов.\n[8] Для добавления нескольких свойств.\n\nВведите что вам нужно. Для выхода ентер. ");
+            System.out.println("" +
+                    "\n[1] Добавить новый объект." +
+                    "\n[2] Добавить новое свойство. " +
+                    "\n[3] Добавить свойство объекта." +
+                    "\n[4] Получить свойство объекта." +
+                    "\n[5] Получить таблицу объектов и их свойсв." +
+                    "\n[6] Для замены имен объектов." +
+                    "\n[7] Для добавления нескольких объектов." +
+                    "\n[8] Для добавления нескольких свойств." +
+                    "\n\nВведите что вам нужно. Для выхода ентер. ");
             s = sc.nextLine();
             if(!(s.equals(""))) {
                 do {
@@ -56,6 +65,8 @@ public class Go {
                 case 7:manyObjects();break;
 
                 case 8:manyPropretis();break;
+
+                case 9:fillTheObject();break;
 
             }
         }while(!(s.equals("")));
@@ -133,5 +144,34 @@ public class Go {
         System.out.println("Введите имя объекта.");
         toScan1 = sc.nextLine();
         track.addObject(toScan1);
+    }
+
+    private void fillTheObject(){
+        Property[] prop = new Property[track.properties.size()];
+        for(int i = 0; i < track.properties.size(); i++){
+            prop[i] = track.properties.get(i);
+        }
+        int number = -1;
+        System.out.println("Введите номер объекта.");
+        toScan1 = sc.nextLine();
+        do{
+            try{
+                number = Integer.parseInt(toScan1);
+            }catch (Exception E){
+                System.out.println("Неправильный номер объекта. Введите еще раз.");
+                Scanner sc = new Scanner(System.in);
+                toScan1 = sc.nextLine();
+            }
+        }while(number == -1);
+
+        for(int i = 0; i < track.properties.size(); i++){
+            System.out.print("Вводи Свойство:"+prop[i].getName()+" |");
+            toScan2 = sc.nextLine();
+            prop[i].setValueOfObject(number, toScan2);
+        }
+        for(int i = 0; i < track.properties.size(); i++){
+            track.properties.set(i,prop[i]);
+        }
+
     }
 }
