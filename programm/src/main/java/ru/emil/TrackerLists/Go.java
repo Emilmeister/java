@@ -28,14 +28,16 @@ public class Go {
         */
         do {
             System.out.println("" +
-                    "\n[1] Добавить новый объект." +
-                    "\n[2] Добавить новое свойство. " +
-                    "\n[3] Добавить свойство объекта." +
-                    "\n[4] Получить свойство объекта." +
-                    "\n[5] Получить таблицу объектов и их свойсв." +
-                    "\n[6] Для замены имен объектов." +
-                    "\n[7] Для добавления нескольких объектов." +
-                    "\n[8] Для добавления нескольких свойств." +
+                    "\n[1]  Добавить новый объект.\t\t\t\t\t\t\t\t["+ track.simbols + "]" +
+                    "\n[2]  Добавить новое свойство. " +
+                    "\n[3]  Добавить свойство объекта." +
+                    "\n[4]  Получить свойство объекта." +
+                    "\n[5]  Получить таблицу объектов и их свойсв." +
+                    "\n[6]  Для замены имен объектов." +
+                    "\n[7]  Для добавления нескольких объектов." +
+                    "\n[8]  Для добавления нескольких свойств." +
+                    "\n[9]  Для ввода ысех свойст объекта."+
+                    "\n[10] Для смены кол-ва символов в ячейке."+
                     "\n\nВведите что вам нужно. Для выхода ентер. ");
             s = sc.nextLine();
             if(!(s.equals(""))) {
@@ -47,27 +49,28 @@ public class Go {
                         s = sc.nextLine();
                         a = Integer.parseInt(s);
                     }
+                    switch (a){
+                        case 1:addObject(); break;
+
+                        case 2:addProperty();break;
+
+                        case 3:setPropetryOfObject();break;
+
+                        case 4:getPropetryOfObject();break;
+
+                        case 5:track.getObjectsAndPropertys();break;
+
+                        case 6:remakeNameofObject();break;
+
+                        case 7:manyObjects();break;
+
+                        case 8:manyPropretis();break;
+
+                        case 9:fillTheObject();break;
+
+                        case 10:track.simbols = Integer.parseInt(sc.nextLine());
+                    }
                 }while(s.equals(""));
-            }
-            switch (a){
-                case 1:addObject(); break;
-
-                case 2:addProperty();break;
-
-                case 3:setPropetryOfObject();break;
-
-                case 4:getPropetryOfObject();break;
-
-                case 5:track.getObjectsAndPropertys();break;
-
-                case 6:remakeNameofObject();break;
-
-                case 7:manyObjects();break;
-
-                case 8:manyPropretis();break;
-
-                case 9:fillTheObject();break;
-
             }
         }while(!(s.equals("")));
 
@@ -117,7 +120,7 @@ public class Go {
     }
 
     private void getPropetryOfObject(){
-        System.out.println("Введите имя объекта.");
+        System.out.println("Введите номер объекта.");
         toScan1 = sc.nextLine();
         System.out.println("Введите название свойства.");
         toScan2 = sc.nextLine();

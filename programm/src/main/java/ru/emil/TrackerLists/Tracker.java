@@ -69,19 +69,23 @@ public class Tracker {
          }
      }
 
-     public String getPropertyOfObject(String nameOfObject, String nameOfProperty){
+     public String getPropertyOfObject(String ObjectzNumber, String nameOfProperty){
          Property b =  new Property("");
+         int number = -1;
          String s = "";
          Object a = new Object("-1");
-         int i ;
-         if((objects.size() > 0)&&(properties.size() > 0)) {
-             for (i = 0; i < objects.size(); i++) {
-                 a = objects.get(i);
-                 if(a.getName().equals(nameOfObject)){
-
-                     break;
-                 }
+         do{
+             try{
+                 number = Integer.parseInt(ObjectzNumber);
+             }catch (Exception E){
+                 System.out.println("Неправильный номер объекта. Введите еще раз.");
+                 Scanner sc = new Scanner(System.in);
+                 ObjectzNumber = sc.nextLine();
              }
+         }while(number == -1);
+
+         if((objects.size() > 0)&&(properties.size() > 0)) {
+             a = objects.get(number);
              int pr;
              for(pr = 0; pr< properties.size(); pr++){
                  b = properties.get(pr);
@@ -89,9 +93,9 @@ public class Tracker {
                      break;
                  }
              }
-             if(a.getName().equals(nameOfObject)&&(b.getName().equals(nameOfProperty))) {
+             if(a.getName().equals(a.getName())&&(b.getName().equals(nameOfProperty))) {
 
-                 s = b.getValue(i+1);
+                 s = b.getValue(number+1);
              }else{
                  s ="";
              }
@@ -112,7 +116,7 @@ public class Tracker {
              ob[i] = objects.get(i);
          }
          if(objects.size()>0){
-             System.out.print("|    |          |");
+             System.out.print("|    |"+remakeString(simbols,"")+"|");
              for (int i = 0; i < properties.size();i++ ){
                  if(i == properties.size() - 1) {
                      System.out.println(remakeString(simbols,pr[i].getName())+"|");
@@ -192,8 +196,5 @@ public class Tracker {
 
 
      }
-
-
-
 }
 
