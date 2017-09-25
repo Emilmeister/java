@@ -196,5 +196,44 @@ public class Tracker {
 
 
      }
+
+     public void delObject(String objectNumber){
+         Property[] pr = new Property[properties.size()];
+         int number = -1;
+         do{
+             try{
+                 number = Integer.parseInt(objectNumber);
+             }catch (Exception E){
+                 System.out.println("Неправильный номер объекта. Введите еще раз.");
+                 Scanner sc = new Scanner(System.in);
+                 objectNumber = sc.nextLine();
+             }
+         }while(number == -1);
+         number--;
+        if((number >= 0)&&(number < objects.size())){
+            objects.remove(number);
+            for(int i = 0; i < pr.length; i++){
+                pr[i] = properties.get(i);
+            }
+            for (int i = 0; i < pr.length; i++){
+                pr[i].setValueOfObject(number+1,"");
+                for(int j = number; j <= objects.size(); j++){
+                    pr[i].setValueOfObject(j+1,pr[i].getValue(j+2));
+                }
+            }
+            properties.clear();
+            for(int i = 0; i < pr.length; i++){
+                properties.add(pr[i]);
+            }
+
+        }else{
+            System.out.println("Обьект не удален.");
+        }
+
+     }
+
+     public void delProperty(){
+
+     }
 }
 

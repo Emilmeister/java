@@ -36,7 +36,7 @@ public class Go {
                     "\n[6]  Для замены имен объектов." +
                     "\n[7]  Для добавления нескольких объектов." +
                     "\n[8]  Для добавления нескольких свойств." +
-                    "\n[9]  Для ввода ысех свойст объекта."+
+                    "\n[9]  Для ввода всех свойст объекта."+
                     "\n[10] Для смены кол-ва символов в ячейке."+
                     "\n\nВведите что вам нужно. Для выхода ентер. ");
             s = sc.nextLine();
@@ -68,7 +68,9 @@ public class Go {
 
                         case 9:fillTheObject();break;
 
-                        case 10:track.simbols = Integer.parseInt(sc.nextLine());
+                        case 10:track.simbols = Integer.parseInt(sc.nextLine());//  remake
+
+                        case 11:delObject();
                     }
                 }while(s.equals(""));
             }
@@ -87,9 +89,12 @@ public class Go {
             toScan1 = sc.nextLine();
             var = Integer.parseInt(toScan1);
         }
+
         for (int i = 0; i < var; i++ ) {
+            System.out.print("Обьект "+ (i+1) +":");
             toScan2 = sc.nextLine();
             track.addObject(toScan2);
+            System.out.print("\n");
         }
 
     }
@@ -177,4 +182,12 @@ public class Go {
         }
 
     }
+
+    private void delObject(){
+        System.out.println("Введите номер объекта.");
+        toScan1 = sc.nextLine();
+        track.delObject(toScan1);
+    }
+
+
 }

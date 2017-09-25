@@ -1,42 +1,23 @@
 package ru.emil.Tester;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        String a = "aaa";
+        ArrayList<String> arr = new ArrayList<String>();
 
-        a = remakeString(5,a);
-        char[] chars = a.toCharArray();
-        System.out.println(chars.length);
-        System.out.println(a);
+        arr.add("Первый");
+        arr.add("Второй");
+        arr.add("Третий");
+        arr.clear();
+        arr.add("Первый");
+        arr.add("Второй");
+
+        System.out.println(arr);
+        System.out.println(arr.size());
+
 
     }
-    public static String remakeString(int a,String b) {
-        char[] ch1 = b.toCharArray();
-        char[] ch2 = new char[a];
-        b = "";
-        String str="";
-        for(int i = ch1.length; i < a; i++) {
-            ch2[i] = ' ';
-        }
-        if (a > ch1.length)  {
-            for(int i = 0; i < ch1.length; i++){
-                ch2[i] = ch1[i];
-            }
 
-            for(int i = 0; i < a; i++){
-                str = String.valueOf(ch2[i]);
-                b = b + str;
-            }
-        }  else{
-            for(int i = 0; i < a;i++)     {
-                ch2[i] = ch1[i];
-            }
-            for(int i = 0; i < a; i++){
-                str = String.valueOf(ch2[i]);
-                b = b + str;
-            }
-        }
 
-        return b;
-    }
 }
