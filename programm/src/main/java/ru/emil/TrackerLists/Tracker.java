@@ -94,13 +94,14 @@ public class Tracker {
                  }
              }
              if(a.getName().equals(a.getName())&&(b.getName().equals(nameOfProperty))) {
-
                  s = b.getValue(number+1);
              }else{
                  s ="";
+                 System.out.println("Ошибка.");
              }
          }else {
              s = "";
+             System.out.println("Ошибка.");
          }
              return s;
      }//get one prop
@@ -232,8 +233,26 @@ public class Tracker {
 
      }
 
-     public void delProperty(){
+     public void delProperty(String propertyNumber) {
+          int number = -1;
+         do {
+             try {
+                 number = Integer.parseInt(propertyNumber);
+             } catch (Exception E) {
+                 System.out.println("Неправильный номер объекта. Введите еще раз.");
+                 Scanner sc = new Scanner(System.in);
+                 propertyNumber = sc.nextLine();
+             }
+         } while (number == -1);
 
+         if(number <= properties.size()) {
+             number--;
+             Property pr = properties.get(number);
+             System.out.println("Удалено свойство: " + pr.getName());
+             properties.remove(number);
+         }else {
+             System.out.println("Неправильный номер свойства");
+         }
      }
 }
 

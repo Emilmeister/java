@@ -68,9 +68,9 @@ public class Go {
 
                         case 9:fillTheObject();break;
 
-                        case 10:track.simbols = Integer.parseInt(sc.nextLine());//  remake
+                        case 10:remakeString();break;//  remake
 
-                        case 11:delObject();
+                        case 11:delObject();break;
                     }
                 }while(s.equals(""));
             }
@@ -79,17 +79,18 @@ public class Go {
     }
 
     private void manyObjects(){
-        int var = 1;
+        int var = -1;
         System.out.println("Сколько объектов вы хотите создать?");
         toScan1 = sc.nextLine();
-        try{
-            var = Integer.parseInt(toScan1);
-        }catch (Exception E){
-            System.out.println("Неправильно введено число. Введите еще раз.");
-            toScan1 = sc.nextLine();
-            var = Integer.parseInt(toScan1);
-        }
-
+        do {
+            try {
+                var = Integer.parseInt(toScan1);
+            } catch (Exception E) {
+                System.out.println("Неправильно введено число. Введите еще раз.");
+                toScan1 = sc.nextLine();
+                var = Integer.parseInt(toScan1);
+            }
+        }while(var == -1);
         for (int i = 0; i < var; i++ ) {
             System.out.print("Обьект "+ (i+1) +":");
             toScan2 = sc.nextLine();
@@ -100,16 +101,18 @@ public class Go {
     }
 
     private void manyPropretis() {
-        int var = 1;
+        int var = -1;
         System.out.println("Сколько свойств вы хотите создать?");
         toScan1 = sc.nextLine();
-        try{
-            var = Integer.parseInt(toScan1);
-        }catch (Exception E){
-            System.out.println("Неправильно введено число. Введите еще раз.");
-            toScan1 = sc.nextLine();
-            var = Integer.parseInt(toScan1);
-        }
+        do {
+            try {
+                var = Integer.parseInt(toScan1);
+            } catch (Exception E) {
+                System.out.println("Неправильно введено число. Введите еще раз.");
+                toScan1 = sc.nextLine();
+                var = Integer.parseInt(toScan1);
+            }
+        }while(var == -1);
         for (int i = 0; i < var; i++ ) {
             toScan2 = sc.nextLine();
             track.addNewProperty(toScan2);
@@ -187,6 +190,11 @@ public class Go {
         System.out.println("Введите номер объекта.");
         toScan1 = sc.nextLine();
         track.delObject(toScan1);
+    }
+
+    private void remakeString(){
+        System.out.println("Введите число символов в ячейке.");
+        track.simbols = Integer.parseInt(sc.nextLine());//  remake
     }
 
 
