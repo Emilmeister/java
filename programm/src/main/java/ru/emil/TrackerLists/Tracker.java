@@ -117,7 +117,7 @@ public class Tracker {
              ob[i] = objects.get(i);
          }
          if(objects.size()>0){
-             System.out.print("|    |"+remakeString(simbols,"")+"|");
+             System.out.print("| №  |"+remakeString(simbols,"")+"|");
              for (int i = 0; i < properties.size();i++ ){
                  if(i == properties.size() - 1) {
                      System.out.println(remakeString(simbols,pr[i].getName())+"|");

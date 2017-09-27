@@ -38,6 +38,8 @@ public class Go {
                     "\n[8]  Для добавления нескольких свойств." +
                     "\n[9]  Для ввода всех свойст объекта."+
                     "\n[10] Для смены кол-ва символов в ячейке."+
+                    "\n[11] Для удаления объекта."+
+                    "\n[12] Для удаления свойства."+
                     "\n\nВведите что вам нужно. Для выхода ентер. ");
             s = sc.nextLine();
             if(!(s.equals(""))) {
@@ -71,6 +73,8 @@ public class Go {
                         case 10:remakeString();break;//  remake
 
                         case 11:delObject();break;
+
+                        case 12:delProperty();break;
                     }
                 }while(s.equals(""));
             }
@@ -114,6 +118,7 @@ public class Go {
             }
         }while(var == -1);
         for (int i = 0; i < var; i++ ) {
+            System.out.print("Свойство "+ (i+1) +":");
             toScan2 = sc.nextLine();
             track.addNewProperty(toScan2);
         }
@@ -187,7 +192,7 @@ public class Go {
     }
 
     private void delObject(){
-        System.out.println("Введите номер объекта.");
+        System.out.println("Введите номер объекта. Если не хотите ничего удалять введите число с минусом, кроме -1.");
         toScan1 = sc.nextLine();
         track.delObject(toScan1);
     }
@@ -197,5 +202,10 @@ public class Go {
         track.simbols = Integer.parseInt(sc.nextLine());//  remake
     }
 
+    private void delProperty(){
+        System.out.println("Введите номер удаляемого свойства. Если не хотите ничего удалять введите число с минусом, кроме -1.");
+        toScan1 = sc.nextLine();
+        track.delProperty(toScan1);
+    }
 
 }
